@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Expense Manager</title>
+  </head>
+  <body class="h-screen w-screen bg-slate-100">
+    <div class="h-64 bg-yellow-600 p-10">
+      <form id="expense_form" class="w-8/12 mx-auto text-white">
+        <input
+          type="number"
+          placeholder="Amount"
+          name="amount"
+          class="p-4 rounded-md w-full text-gray-600 outline-none"
+        />
+        <div class="mt-2 flex items-center space-x-2">
+          <input
+            id="credit"
+            type="radio"
+            name="type"
+            value="CREDIT"
+            class="h-6 w-6 text-yellow-700"
+          />
+          <label for="credit">Credit</label>
+        </div>
+        <div class="mt-2 flex items-center space-x-2">
+          <input
+            id="debit"
+            type="radio"
+            name="type"
+            value="DEBIT"
+            class="h-6 w-6 text-yellow-700"
+          />
+          <label for="debit">Debit</label>
+        </div>
+        <button class="bg-yellow-700 text-white px-6 py-2 my-2 rounded-md">
+          Submit
+        </button>
+      </form>
+    </div>
+    <div class="grid grid-cols-2">
+      <div class="bg-red-200 p-4" id="debit_table">
+        <h4 class="text-lg font-medium text-gray-600 mb-2">Debit</h4>
+        <!-- <div
+          class="bg-red-300 text-sm font-medium p-4 flex items-center justify-between mb-2"
+        >
+          <p>$400</p>
+          <p>4 month ago</p>
+        </div> -->
+      </div>
+      <div class="bg-green-200 p-4" id="credit_table">
+        <h4 class="text-lg font-medium text-gray-600 mb-2">Credit</h4>
+        <!-- <div
+          class="bg-green-300 text-sm font-medium p-4 flex items-center justify-between mb-2"
+        >
+          <p>$400</p>
+          <p>4 month ago</p>
+        </div> -->
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
+
+<!-- About Application wallet amount = 0; input -> expense amount checkbox -> credit
+    || debit Table credit || debit -->
