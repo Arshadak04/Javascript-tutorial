@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Task Manager</title>
+  </head>
+  <body class="h-screen">
+    <!-- upper div -->
+    <div class="p-24 bg-blue-400">
+      <form id="form" class="flex items-center justify-center space-x-4">
+        <input
+          type="text"
+          name="task"
+          placeholder="Enter your task"
+          class="text-sm p-4 rounded ring-1 ring-blue-800 flex-grow outline-none"
+        />
+        <button class="p-4 text-sm bg-blue-800 text-white rounded">
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <!-- lower div -->
+    <div id="table"></div>
+    <script src="./index.js"></script>
+  </body>
+</html>

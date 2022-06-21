@@ -3,6 +3,7 @@
  1. collect transaction information
  2. manage arrays of transaction
  3. to seperate debit and credit list
+ 4. update wallet amount
 
 */
 
@@ -22,9 +23,24 @@ function handleFormSubmission(e) {
   const amount = e.target.amount.value;
   const type = e.target.type.value;
 
+  if (!amount || !type) return;
+
   let transaction = { amount, type, time: Date.now() };
   db.push(transaction);
+  calculateWalletAmount();
   renderData(transaction);
+}
+
+function calculateWalletAmount() {
+  let totalAmount = 0;
+  db.map((curr) => {
+    let amount = parseFloat(curr.amount);
+    if (curr.type === CREDIT) totalAmount += amount;
+    else totalAmount -= amount;
+  });
+
+  const elm = document.getElementById("wallet");
+  elm.innerText = `$${totalAmount}`;
 }
 
 function renderData(transaction) {
