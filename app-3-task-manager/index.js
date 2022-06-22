@@ -14,7 +14,9 @@ task list
 let form = document.getElementById("form");
 let taskTable = document.getElementById("table");
 
-let taskList = [];
+let taskList = JSON.parse(localStorage.getItem("task")) || [];
+
+updateUi();
 
 function handleUserData(e) {
   e.preventDefault();
@@ -55,5 +57,9 @@ taskTable.addEventListener("click", function (e) {
     handleDelete(taskId);
   }
 });
+
+window.onbeforeunload = () => {
+  localStorage.setItem("task", JSON.stringify(taskList));
+};
 
 form.addEventListener("submit", handleUserData);
